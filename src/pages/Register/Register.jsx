@@ -12,12 +12,14 @@ const Register = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photo.value;
     const password = form.password.value;
-    console.log(name, email, password);
-
+    // console.log(name, email,photo, password);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        user.displayName = name
+        user.photoURL = photo
         console.log(user);
       })
       .catch((error) => console.log(error));
@@ -57,6 +59,17 @@ const Register = () => {
                 type="text"
                 placeholder="email"
                 name="email"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo Url</span>
+              </label>
+              <input
+                type="text"
+                placeholder="photo url"
+                name="photo"
                 className="input input-bordered"
               />
             </div>
