@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
           </div>
           <div className="card w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
-              <h1 className="text-5xl font-bold">Login</h1>
+              <h1 className="text-5xl font-bold text-center">Login</h1>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -28,6 +29,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="email"
+                  name="email"
                   className="input input-bordered"
                 />
               </div>
@@ -36,7 +38,8 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
@@ -53,6 +56,12 @@ const Login = () => {
                   value="Login"
                 />
               </div>
+              <p className="mt-2">
+                New here?{" "}
+                <Link className="text-rose-400 font-bold" to="/register">
+                  Register
+                </Link>
+              </p>
             </form>
           </div>
         </div>
