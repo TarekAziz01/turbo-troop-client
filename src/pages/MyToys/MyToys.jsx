@@ -1,35 +1,21 @@
-import { useState } from 'react';
-import ToyUpdateModal from '../../components/ToyUpdateModal/ToyUpdateModal';
+import { useContext, useEffect, useState } from "react";
+import ToyUpdateModal from "../../components/ToyUpdateModal/ToyUpdateModal";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const MyToys = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Sample product data
-  const products = [
-    {
-      id: 1,
-      name: "Product 1",
-      image: "product1.jpg",
-      price: 10.99,
-      rating: 4.5,
-      category: "Category 1",
-      seller: "Seller 1",
-      quantity: 5,
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      image: "product2.jpg",
-      price: 19.99,
-      rating: 3.8,
-      category: "Category 2",
-      seller: "Seller 2",
-      quantity: 10,
-    },
-    // Add more products here...
-  ];
+  const { user } = useContext(AuthContext);
+  const [products, setProducts] = useState([]);
+
+  const url = `http://localhost:5000/mytoys?email=${user.email}`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [url]);
 
   const openModal = (product) => {
     setSelectedProduct(product);
@@ -74,7 +60,7 @@ const MyToys = () => {
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {products.map((product) => (
-            <tr key={product.id}>
+            <tr key={product._id}>
               <td className="px-6 py-4 whitespace-nowrap">
                 <img
                   src={product.image}
