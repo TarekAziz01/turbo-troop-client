@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import ToyUpdateModal from "../../components/ToyUpdateModal/ToyUpdateModal";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
 
@@ -31,9 +32,31 @@ const MyToys = () => {
     console.log("Update product:", product);
   };
 
-  const handleDelete = (product) => {
-    // Handle delete logic here
-    console.log("Delete product:", product);
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        fetch(`http://localhost:5000/toys/${_id}`, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", " Toy has been deleted.", "success");
+              const remaining = products.filter(product => product._id !== _id)
+              setProducts(remaining);
+            }
+          })
+      }
+    });
   };
 
   return (
@@ -63,13 +86,13 @@ const MyToys = () => {
             <tr key={product._id}>
               <td className="px-6 py-4 whitespace-nowrap">
                 <img
-                  src={product.image}
+                  src={product.img}
                   alt={product.name}
                   className="w-10 h-10 rounded-full"
                 />
               </td>
               <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{product.price}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{product.price} $</td>
               <td className="px-6 py-4 whitespace-nowrap">{product.rating}</td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <button
@@ -80,7 +103,7 @@ const MyToys = () => {
                 </button>
                 <button
                   className="text-red-600 hover:text-red-900"
-                  onClick={() => handleDelete(product)}
+                  onClick={() => handleDelete(product._id)}
                 >
                   Delete
                 </button>
