@@ -53,7 +53,10 @@ const AddToy = () => {
             placeholder="email"
           />
 
-          <select className="m-2 h-8 px-2 shadow-lg " {...register("gender")}>
+          <select
+            className="m-2 h-8 px-2 shadow-lg "
+            {...register("subCategory")}
+          >
             <option value="sports car">sports car</option>
             <option value="fire truck">fire truck</option>
             <option value="police car">police car</option>
@@ -70,7 +73,7 @@ const AddToy = () => {
           <input
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
-            {...register("available-quantity", { required: true })}
+            {...register("availableQuantity", { required: true })}
             placeholder="quantity"
           />
           <input
