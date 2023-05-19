@@ -42,7 +42,7 @@ const AddToy = () => {
           />
           <input
             className="m-2 h-8 px-2 shadow-lg "
-            defaultValue=""
+            defaultValue={user?.displayName}
             {...register("seller", { required: true })}
             placeholder="seller"
           />

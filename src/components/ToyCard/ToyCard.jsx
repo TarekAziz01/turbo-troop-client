@@ -1,22 +1,21 @@
 
 
-const ToyCard = () => {
+const ToyCard = (props) => {
+  console.log(props)
+  const { img, name, price, rating } = props.toy;
     return (
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
-          <img
-            src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-          />
+          <img src={img} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
-            Shoes!
-            <div className="badge badge-secondary">NEW</div>
+            {name}
+            <div className="badge badge-secondary">{rating}</div>
           </h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
+            <div className="badge badge-outline">{price}</div>
             <div className="badge badge-outline">Products</div>
           </div>
         </div>

@@ -9,7 +9,7 @@ const AllToys = () => {
         <div>
             <h3>{toys.length}</h3>
             {
-                toys.map(toy=><ToyCard></ToyCard>)
+                toys.map(toy=><ToyCard key={toy._id} toy={toy}></ToyCard>)
             }
         </div>
     );
