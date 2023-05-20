@@ -3,7 +3,7 @@ import logo from "../../../assets/images/turbo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white">
+    <footer className="bg-black text-white">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-8 px-4">
         <div className="flex items-center">
           <img src={logo} alt="Website Logo" className="w-12 h-12" />
