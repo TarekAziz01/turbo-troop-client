@@ -4,14 +4,13 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const MyToys = () => {
-
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
-  const url = `http://localhost:5000/mytoys?email=${user.email}`;
+  const url = `https://turbo-troop-server.vercel.app/mytoys?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -27,11 +26,6 @@ const MyToys = () => {
     setShowModal(false);
   };
 
-  const handleUpdate = (product) => {
-    // Handle update logic here
-    console.log("Update product:", product);
-  };
-
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -43,18 +37,19 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        
-        fetch(`http://localhost:5000/toys/${_id}`, {
-          method: "DELETE"
+        fetch(`https://turbo-troop-server.vercel.app/toys/${_id}`, {
+          method: "DELETE",
         })
-          .then(res => res.json())
-          .then(data => {
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", " Toy has been deleted.", "success");
-              const remaining = products.filter(product => product._id !== _id)
+              const remaining = products.filter(
+                (product) => product._id !== _id
+              );
               setProducts(remaining);
             }
-          })
+          });
       }
     });
   };
@@ -117,7 +112,6 @@ const MyToys = () => {
         <ToyUpdateModal
           selectedProduct={selectedProduct}
           closeModal={closeModal}
-          handleUpdate={handleUpdate}
         ></ToyUpdateModal>
       )}
     </div>

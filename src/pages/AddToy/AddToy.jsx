@@ -11,7 +11,7 @@ const AddToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (newToy) => {
-    fetch("http://localhost:5000/toys", {
+    fetch("https://turbo-troop-server.vercel.app/toys", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newToy),
@@ -19,13 +19,13 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-          if (data.insertedId) {
-            Swal.fire({
-              title: "Success!",
-              text: "Product Added Successfully",
-              icon: "success",
-              confirmButtonText: "Ok",
-            });
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
         }
       });
     console.log(newToy);
@@ -81,6 +81,12 @@ const AddToy = () => {
             defaultValue=""
             {...register("img", { required: true })}
             placeholder="photo url"
+          />
+          <input
+            className="m-2 h-8 px-2 shadow-lg "
+            defaultValue=""
+            {...register("description", { required: true })}
+            placeholder="Detail description"
           />
           <input
             className="m-2 h-8 px-2 shadow-lg "
