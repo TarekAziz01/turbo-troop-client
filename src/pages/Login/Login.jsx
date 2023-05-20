@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
+import NotFoundImage from "../../assets/images/login.png";
 
 const Login = () => {
   
@@ -11,7 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-  console.log(location)
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -36,17 +36,16 @@ const Login = () => {
       .catch((error) => console.log(error));
   };
 
+  const backgroundStyle = {
+    backgroundImage: `url(${NotFoundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="text-center w-1/2 lg:text-left">
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
-        <div className="card w-1/2 max-w-sm shadow-2xl bg-base-100">
+    <div className="hero min-h-screen bg-base-200" style={backgroundStyle}>
+      <div className="hero-content ">
+        <div className="card  shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-5xl font-bold text-center">Login</h1>
             <div className="form-control">
