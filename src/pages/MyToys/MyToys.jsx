@@ -7,7 +7,7 @@ const MyToys = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
   const url = `https://turbo-troop-server.vercel.app/mytoys?email=${user.email}`;
@@ -53,6 +53,14 @@ const MyToys = () => {
       }
     });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center">
+        <progress className="progress w-56"></progress>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -8,6 +8,7 @@ import MyToys from "../pages/MyToys/MyToys";
 import AddToy from "../pages/AddToy/AddToy";
 import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ToyDetails from "../pages/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,15 @@ const router = createBrowserRouter([
       {
         path: "/myToys",
         element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
-        // element: <MyToys></MyToys>,
       },
       {
         path: "/addToy",
         element: <AddToy></AddToy>,
+      },
+      {
+        path: "/toy/:id",
+        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`https://turbo-troop-server.vercel.app/toy/${params.id}`)
       },
       {
         path: "/blogs",

@@ -74,7 +74,7 @@ const AddToy = () => {
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
             {...register("availableQuantity", { required: true })}
-            placeholder="quantity"
+            placeholder="availableQuantity"
           />
           <input
             className="m-2 h-8 px-2 shadow-lg "

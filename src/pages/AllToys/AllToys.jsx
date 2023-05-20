@@ -1,9 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const AllToys = () => {
-
     const products = useLoaderData();
+    const { loading } = useContext(AuthContext);
+    
+    if (loading) {
+      return <progress className="progress w-56"></progress>;
+    }
 
     return (
       <div>
@@ -45,12 +51,11 @@ const AllToys = () => {
                   {product.availableQuantity}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <button
-                    className="text-indigo-600 hover:text-indigo-900"
-                    onClick={() => console.log("View Details:", product)}
-                  >
-                    View Details
-                  </button>
+                  <Link to={`/toy/${product._id}`}>
+                    <button className="text-indigo-600 hover:text-indigo-900">
+                      View Details
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
