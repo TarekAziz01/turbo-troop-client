@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import logo from "../../../assets/images/turbo.png";
 
 
 const Navbar = () => {
@@ -65,9 +66,12 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            TurboTroop
-          </Link>
+          <div className="flex items-center">
+            <img src={logo} alt="Website Logo" className="w-9 h-9" />
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
+              Turbo Troop
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
