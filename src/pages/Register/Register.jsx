@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import NotFoundImage from "../../assets/images/login.png";
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -26,18 +27,16 @@ const Register = () => {
     
   };
 
+   const backgroundStyle = {
+     backgroundImage: `url(${NotFoundImage})`,
+     backgroundSize: "cover",
+     backgroundPosition: "center",
+   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="text-center w-1/2 lg:text-left">
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
-        <div className="card w-1/2 max-w-sm shadow-2xl bg-base-100">
+    <div className="hero min-h-screen bg-base-200" style={backgroundStyle}>
+      <div className="hero-content">
+        <div className="card max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
             <h1 className="text-5xl font-bold text-center">Register</h1>
             <div className="form-control">

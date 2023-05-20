@@ -2,9 +2,9 @@
 
 const Blogs = () => {
     return (
-      <div className="bg-lime-100 p-7">
-        <div>
-          <p>
+      <div className=" p-7">
+        <div className="mb-7">
+          <p className="mb-2">
             Q: What is an access token and refresh token? How do they work and
             where should we store them on the client-side?
           </p>
@@ -18,8 +18,8 @@ const Blogs = () => {
             guidelines for proper token management.
           </p>
         </div>
-        <div>
-          <p>Q: Compare SQL and NoSQL databases?</p>
+        <div className="mb-7">
+          <p className="mb-2">Q: Compare SQL and NoSQL databases?</p>
           <p>
             Ans: SQL databases are structured, enforce fixed schemas, support
             complex queries, and provide strong data integrity. NoSQL databases
@@ -33,10 +33,10 @@ const Blogs = () => {
             PostgreSQL, while MongoDB and Cassandra are prominent NoSQL options.
           </p>
         </div>
-        <div>
-          <p>Q: What is express js? What is Nest JS?</p>
+        <div className="mb-7">
+          <p className="mb-2">Q: What is express js? What is Nest JS?</p>
           <p>
-            Ans:Express.js is a lightweight and fast web application framework
+            Ans: Express.js is a lightweight and fast web application framework
             for Node.js. It provides a range of features, including routing,
             middleware support, and simplified handling of HTTP requests and
             responses. With its minimalistic design and extensive ecosystem,
@@ -53,8 +53,10 @@ const Blogs = () => {
             microservices, and more.
           </p>
         </div>
-        <div>
-          <p>Q: What is MongoDB aggregate and how does it work?</p>
+        <div className="mb-7">
+          <p className="mb-2">
+            Q: What is MongoDB aggregate and how does it work?
+          </p>
           <p>
             Ans: In MongoDB, the aggregate framework is a versatile feature used
             for advanced data processing. It allows for complex operations like
