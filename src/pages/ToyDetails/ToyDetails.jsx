@@ -19,7 +19,7 @@ const ToyDetails = () => {
           <div className="md:w-2/3 md:pl-4">
             <h2 className="text-2xl font-bold mb-2"> Name: {name}</h2>
             <p className="text-lg mb-2">Seller: {seller}</p>
-            <p className="text-gray-600 mb-2"> Email: {email}</p>
+            <p className="text-gray-600 mb-2">Seller Email: {email}</p>
             <p className="text-lg mb-2">Price: {price} $</p>
             <div className="flex items-center mb-2">
               <p className="mr-2">Rating:</p>

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 const ToyUpdateModal = (props) => {
   const { closeModal, selectedProduct } = props;
-  // console.log(selectedProduct)
   const { user } = useContext(AuthContext);
 
   const {
@@ -27,7 +26,7 @@ const ToyUpdateModal = (props) => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Product Added Successfully",
+            text: "Product Updated Successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
@@ -35,11 +34,6 @@ const ToyUpdateModal = (props) => {
       });
     console.log(updatedToy);
   };
-
-  // const handleUpdate = (product) => {
-  //   // Handle update logic here
-  //   console.log("Update product:", product);
-  // };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -135,92 +129,9 @@ const ToyUpdateModal = (props) => {
               <input className="btn btn-accent" type="submit" />
             </form>
           </div>
-          {/* <button
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded"
-            onClick={() => handleUpdate(selectedProduct)}
-          >
-            Update
-          </button> */}
         </div>
       </div>
     </div>
-    // <div className="py-16 w-1/2 mx-auto">
-    //   <form className="" onSubmit={handleSubmit(onSubmit)}>
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       placeholder="toy name"
-    //       {...register("name", { required: true })}
-    //     />
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue={user?.displayName}
-    //       {...register("seller", { required: true })}
-    //       placeholder="seller"
-    //     />
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue={user?.email}
-    //       {...register("email", { required: true })}
-    //       placeholder="email"
-    //     />
-
-    //     <select
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       {...register("subCategory")}
-    //     >
-    //       <option value="sports car">sports car</option>
-    //       <option value="fire truck">fire truck</option>
-    //       <option value="police car">police car</option>
-    //       <option value="truck">truck</option>
-    //     </select>
-
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue=""
-    //       {...register("price", { required: true })}
-    //       placeholder="price"
-    //     />
-
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue=""
-    //       {...register("availableQuantity", { required: true })}
-    //       placeholder="quantity"
-    //     />
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue=""
-    //       {...register("img", { required: true })}
-    //       placeholder="photo url"
-    //     />
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue=""
-    //       {...register("description", { required: true })}
-    //       placeholder="Detail description"
-    //     />
-    //     <input
-    //       className="m-2 h-8 px-2 shadow-lg "
-    //       defaultValue=""
-    //       {...register("rating")}
-    //       placeholder="rating"
-    //     />
-
-    //     {errors.exampleRequired && <span>This field is required</span>}
-
-    //     <input className="btn btn-accent" type="submit" />
-    //   </form>
-    // </div>
-
-    // <div><img
-    //         src={selectedProduct.image}
-    //         alt={selectedProduct.name}
-    //         className="w-40 h-40 rounded-md mb-4"
-    //       />
-    //       <p className="mb-2">Price: {selectedProduct.price}</p>
-    //       <p className="mb-2">Category: {selectedProduct.category}</p>
-    //       <p className="mb-2">Seller: {selectedProduct.seller}</p>
-    //       <p className="mb-2">Available Quantity: {selectedProduct.quantity}</p></div>
   );
 };
 

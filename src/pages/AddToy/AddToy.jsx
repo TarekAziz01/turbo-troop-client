@@ -20,6 +20,7 @@ const AddToy = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+         
           Swal.fire({
             title: "Success!",
             text: "Product Added Successfully",
@@ -28,16 +29,20 @@ const AddToy = () => {
           });
         }
       });
-    console.log(newToy);
+    // this.formRef.current.reset();
+
+    // console.log(newToy);
+    
   };
 
   return (
     <div className="bg-gray-500">
+      <p className="text-center text-white text-2xl pt-5">Add new Toys</p>
       <div className="py-16 w-1/2 mx-auto">
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input
             className="m-2 h-8 px-2 shadow-lg "
-            placeholder="toy name"
+            placeholder="Toy name"
             {...register("name", { required: true })}
           />
           <input
@@ -50,12 +55,13 @@ const AddToy = () => {
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue={user?.email}
             {...register("email", { required: true })}
-            placeholder="email"
+            placeholder="Email"
           />
 
           <select
             className="m-2 h-8 px-2 shadow-lg "
             {...register("subCategory")}
+            placeholder="subCategory"
           >
             <option value="sports car">sports car</option>
             <option value="fire truck">fire truck</option>
@@ -67,20 +73,20 @@ const AddToy = () => {
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
             {...register("price", { required: true })}
-            placeholder="price"
+            placeholder="Price"
           />
 
           <input
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
             {...register("availableQuantity", { required: true })}
-            placeholder="availableQuantity"
+            placeholder="AvailableQuantity"
           />
           <input
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
             {...register("img", { required: true })}
-            placeholder="photo url"
+            placeholder="Photo url"
           />
           <input
             className="m-2 h-8 px-2 shadow-lg "
@@ -92,7 +98,7 @@ const AddToy = () => {
             className="m-2 h-8 px-2 shadow-lg "
             defaultValue=""
             {...register("rating")}
-            placeholder="rating"
+            placeholder="Rating"
           />
 
           {errors.exampleRequired && <span>This field is required</span>}

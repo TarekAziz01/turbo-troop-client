@@ -9,6 +9,7 @@ import AddToy from "../pages/AddToy/AddToy";
 import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -26,16 +27,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/myToys",
-        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyToys></MyToys>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addToy",
-        element: <AddToy></AddToy>,
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/toy/:id",
-        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`https://turbo-troop-server.vercel.app/toy/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://turbo-troop-server.vercel.app/toy/${params.id}`),
       },
       {
         path: "/blogs",
@@ -50,6 +64,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <NotFoundPage></NotFoundPage>,
   },
 ]);
 
