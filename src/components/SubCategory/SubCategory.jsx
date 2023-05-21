@@ -3,9 +3,6 @@ import ToyCard from "../ToyCard/ToyCard";
 
 const SubCategory = (props) => {
   const toys = props.toys;
-
- 
-
   
     return (
       <div >

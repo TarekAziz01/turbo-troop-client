@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("https://turbo-troop-server.vercel.app/toys"),
+        // loader: () => fetch("https://turbo-troop-server.vercel.app/toys"),
       },
       {
         path: "/myToys",

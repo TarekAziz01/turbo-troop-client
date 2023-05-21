@@ -1,11 +1,21 @@
-import { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 
 const AllToys = () => {
-    const products = useLoaderData();
-    const { loading } = useContext(AuthContext);
+  const [products, setProducts] = useState([]);
+  // const products = useLoaderData();
+  
+  const { loading } = useContext(AuthContext);
+  
+  useEffect(() => {
+    fetch("https://turbo-troop-server.vercel.app/toys")
+      .then(res => res.json())
+      .then(data => {
+      setProducts(data.slice(0,20))
+    })
+  },[])
     
     if (loading) {
       return <progress className="progress w-56"></progress>;
