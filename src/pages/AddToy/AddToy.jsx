@@ -20,7 +20,6 @@ const AddToy = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-         
           Swal.fire({
             title: "Success!",
             text: "Product Added Successfully",
@@ -32,7 +31,6 @@ const AddToy = () => {
     // this.formRef.current.reset();
 
     // console.log(newToy);
-    
   };
 
   return (
@@ -63,9 +61,9 @@ const AddToy = () => {
             {...register("subCategory")}
             placeholder="subCategory"
           >
-            <option value="sports car">sports car</option>
-            <option value="fire truck">fire truck</option>
-            <option value="police car">police car</option>
+            <option value="sportsCar">sports car</option>
+            <option value="fireTruck">fire truck</option>
+            <option value="policeCar">policeCar</option>
             <option value="truck">truck</option>
           </select>
 

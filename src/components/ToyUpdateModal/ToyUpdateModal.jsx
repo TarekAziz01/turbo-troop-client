@@ -86,9 +86,9 @@ const ToyUpdateModal = (props) => {
                 defaultValue={selectedProduct?.subCategory}
                 {...register("subCategory")}
               >
-                <option value="sports car">Sports car</option>
-                <option value="fire truck">Fire truck</option>
-                <option value="police car">Police car</option>
+                <option value="sportsCar">Sports car</option>
+                <option value="fireTruck">Fire truck</option>
+                <option value="policeCar">policeCar</option>
                 <option value="truck">Truck</option>
               </select>
 
