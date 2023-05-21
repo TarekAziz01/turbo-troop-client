@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import logo from "../../../assets/images/turbo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Navbar = () => {
@@ -10,6 +12,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut()
       .then(() => {
+        toast("Log out seccess");
       })
       .catch((error) => console.log(error));
   };
@@ -22,20 +25,21 @@ const Navbar = () => {
         <li>
           <Link to="/allToys">All Toys</Link>
         </li>
-        <li>
-          <Link to="/myToys">My Toys</Link>
-        </li>
-        <li>
-          <Link to="/addToy">Add Toy</Link>
-        </li>
+        {user && (
+          <>
+            <li>
+              <Link to="/myToys">My Toys</Link>
+            </li>
+            <li>
+              <Link to="/addToy">Add Toy</Link>
+            </li>
+          </>
+        )}
         <li>
           <Link to="/login">Login</Link>
         </li>
         <li>
           <Link to="/blogs">Blogs</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
         </li>
       </>
     );
@@ -96,6 +100,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+        <ToastContainer />
       </div>
     );
 };

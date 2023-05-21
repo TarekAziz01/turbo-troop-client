@@ -3,15 +3,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import NotFoundImage from "../../assets/images/login.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
+
+  const handelTost = () => {
+    toast("Login success");
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -22,16 +28,23 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
+        handelTost();
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-     .then((result) => {
-       const user = result.user;
-       console.log(user);
-       navigate(from, {replace: true})
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        handelTost();
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
@@ -48,6 +61,7 @@ const Login = () => {
         <div className="card max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-5xl font-bold text-center">Login</h1>
+            <h2 className="text-red-400 mt-5">{error}</h2>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -95,6 +109,7 @@ const Login = () => {
               <FaGoogle className="text-green-500 mr-2" /> Continue with Google
             </button>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>

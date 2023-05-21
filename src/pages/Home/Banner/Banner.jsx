@@ -1,4 +1,4 @@
-import car1 from '../../../../assets/images/car-accident-insurance-safety.jpg'
+import car1 from '../../../assets/images/car-accident-insurance-safety.jpg'
 const Banner = () => {
     return (
       <div className="bg-gray-800 py-8 md:py-16">
