@@ -3,12 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import image1 from "../../../assets/images/404_error.png";
-import image2 from "../../../assets/images/404_error.png";
-import image3 from "../../../assets/images/404_error.png";
+import image1 from "../../../assets/images/slide1.jpg";
+import image2 from "../../../assets/images/slide2.jpg";
+import image3 from "../../../assets/images/slide3.jpg";
+import image4 from "../../../assets/images/slide4.jpg";
+import image5 from "../../../assets/images/slide5.jpg";
+import image6 from "../../../assets/images/slide6.jpg";
+import image7 from "../../../assets/images/slide7.jpg";
 
 const GallerySection = () => {
-  const images = [image1, image2, image3];
+  const images = [image1, image2, image3, image4, image5, image6, image7];
   const sliderRef = useRef(null);
 
    useEffect(() => {

@@ -9,13 +9,9 @@ const About = () => {
           </h2>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-6 md:mb-0">
-              <img
-                src={img}
-                alt="About Turbo Troop"
-                className="w-full"
-              />
+              <img src={img} alt="About Turbo Troop" className="w-full" />
             </div>
-            <div className="md:w-1/2 md:pl-8">
+            <div className="md:w-1/2 md:pl-8 px-3">
               <p className="text-lg mb-4">
                 Turbo Troop is a comprehensive online learning platform that
                 aims to empower web developers and designers by providing them
