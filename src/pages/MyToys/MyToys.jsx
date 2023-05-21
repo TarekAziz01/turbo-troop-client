@@ -55,6 +55,21 @@ const MyToys = () => {
     });
   };
 
+  // sorting
+  // const [toys, setToys] = useState(products);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const handleSortAscending = () => {
+    const sortedToys = [...products].sort((a, b) => a.price - b.price);
+    setProducts(sortedToys);
+    setSortOrder("asc");
+  };
+
+  const handleSortDescending = () => {
+    const sortedToys = [...products].sort((a, b) => b.price - a.price);
+    setProducts(sortedToys);
+    setSortOrder("desc");
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center">
@@ -65,6 +80,38 @@ const MyToys = () => {
 
   return (
     <div>
+      <div>
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={handleSortAscending}
+            className={`mr-2 py-1 px-3 rounded ${
+              sortOrder === "asc"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300 text-gray-700"
+            }`}
+          >
+            Sort Ascending
+          </button>
+          <button
+            onClick={handleSortDescending}
+            className={`py-1 px-3 rounded ${
+              sortOrder === "desc"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300 text-gray-700"
+            }`}
+          >
+            Sort Descending
+          </button>
+        </div>
+        {/* <ul>
+          {products.map((toy) => (
+            <li key={toy._id}>
+              {toy.name} - ${toy.price}
+            </li>
+          ))}
+        </ul> */}
+      </div>
+
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
