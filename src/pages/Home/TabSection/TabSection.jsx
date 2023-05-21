@@ -29,23 +29,24 @@ const TabSection = () => {
 
 
   return (
-    <Tabs>
-      <TabList>
+    <Tabs className="my-16">
+      <p className="text-center text-3xl font-bold mb-6"> Toys Tabs </p>
+      <TabList className="text-center">
         <Tab onClick={() => handleTab("truck")}>Truck</Tab>
         <Tab onClick={() => handleTab("sportsCar")}>Sports Car</Tab>
         <Tab onClick={() => handleTab("fireTruck")}>Fire Truck</Tab>
       </TabList>
 
       <TabPanel>
-        <h2 className="text-center">Truck</h2>
+        <h2 className="text-center my-5">Truck</h2>
         <SubCategory toys={toys}></SubCategory>
       </TabPanel>
       <TabPanel>
-        <h2 className="text-center">Sports Car</h2>
+        <h2 className="text-center my-5">Sports Car</h2>
         <SubCategory toys={toys}></SubCategory>
       </TabPanel>
       <TabPanel>
-        <h2 className="text-center ">Fire Truck</h2>
+        <h2 className="text-center my-5">Fire Truck</h2>
         <SubCategory toys={toys}></SubCategory>
       </TabPanel>
     </Tabs>

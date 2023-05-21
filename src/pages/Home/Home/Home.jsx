@@ -9,7 +9,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
         <TabSection></TabSection>
-        {/* <GallerySection></GallerySection> */}
+        <GallerySection></GallerySection>
         <About></About>
       </div>
     );

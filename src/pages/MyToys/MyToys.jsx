@@ -74,6 +74,9 @@ const MyToys = () => {
               Name
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Sub-category
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Price
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -95,6 +98,9 @@ const MyToys = () => {
                 />
               </td>
               <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                {product.subCategory}
+              </td>
               <td className="px-6 py-4 whitespace-nowrap">{product.price} $</td>
               <td className="px-6 py-4 whitespace-nowrap">{product.rating}</td>
               <td className="px-6 py-4 whitespace-nowrap">
