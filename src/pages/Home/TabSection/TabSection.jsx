@@ -25,11 +25,7 @@ const TabSection = () => {
     setActiveTab(tabName);
   };
 
-  const { loading } = useContext(AuthContext);
-
-  if (loading) {
-    return <progress className="progress w-56"></progress>;
-  }
+  
 
  
   return (

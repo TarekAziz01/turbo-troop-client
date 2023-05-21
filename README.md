@@ -1,15 +1,15 @@
 # Turbo Troop
 
-* In this project we use firebase
+- In this project we use firebase
 
-* Firebase Authentication
+- Firebase Authentication
 
-* Tailwind CSS 
+- Tailwind CSS
 
-* Environment variable
+- Environment variable
 
-* server hosted on vercel
+- server hosted on vercel
 
-* Client side hosted on firebase
+- Client side hosted on firebase
 
 Live lick is here: [https://turbo-troop.web.app](https://turbo-troop.web.app/)
