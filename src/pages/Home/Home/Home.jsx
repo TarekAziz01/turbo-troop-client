@@ -6,6 +6,7 @@ import TabSection from "../TabSection/TabSection";
 
 
 const Home = () => {
+    document.title = "Turbo Troop";
     return (
         <div>
             <Banner></Banner>

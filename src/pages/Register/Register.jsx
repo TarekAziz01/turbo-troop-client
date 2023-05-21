@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  document.title = "Register";
   const [show, setShow] = useState(false);
   const [error, setError]= useState("")
 

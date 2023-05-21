@@ -4,6 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
+  document.title = "Add Toys";
   const { user } = useContext(AuthContext);
   const {
     register,

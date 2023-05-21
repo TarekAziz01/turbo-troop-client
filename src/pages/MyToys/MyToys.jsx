@@ -4,6 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const MyToys = () => {
+  document.title = "My Toy";
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 

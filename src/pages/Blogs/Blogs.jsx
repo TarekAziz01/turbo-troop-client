@@ -1,6 +1,7 @@
 
 
 const Blogs = () => {
+  document.title = "Blog";
     return (
       <div className=" p-7">
         <div className="mb-7">

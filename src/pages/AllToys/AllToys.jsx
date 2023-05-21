@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   // const products = useLoaderData();
-  
+  document.title="All Toys"
   const { loading } = useContext(AuthContext);
   
   useEffect(() => {

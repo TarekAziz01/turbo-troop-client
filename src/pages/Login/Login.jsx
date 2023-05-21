@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  document.title = "Login";
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
